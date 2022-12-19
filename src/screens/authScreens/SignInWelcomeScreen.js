@@ -13,7 +13,7 @@ import {Icon, SocialIcon, Button} from '@rneui/themed';
 import Header from '../../components/Header';
 import Swiper from 'react-native-swiper';
 
-export default function SignInWelcomeScreen() {
+export default function SignInWelcomeScreen({navigation}) {
   return (
     <View style={{flex: 1}}>
       <View
@@ -67,6 +67,9 @@ export default function SignInWelcomeScreen() {
             title="Login"
             buttonStyle={parameters.styledButton}
             titleStyle={parameters.buttonTitle}
+            onPress={() => {
+              navigation.navigate('SignInScreen');
+            }}
           />
         </View>
         <View style={{marginHorizontal: 20, marginTop: 20}}>

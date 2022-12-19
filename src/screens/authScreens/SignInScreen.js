@@ -6,14 +6,14 @@ import {Icon, SocialIcon, Button} from '@rneui/themed';
 import Header from '../../components/Header';
 // import {Button} from '@rneui/base';
 
-export default function SignInScreen() {
+export default function SignInScreen({navigation}) {
   const [textInputToFocus, settextInputToFocus] = useState(false);
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
 
   return (
     <View style={styles.container}>
-      <Header title="My Account" type="arrow-left" />
+      <Header title="My Account" type="arrow-left" navigation={navigation} />
       <View style={{marginLeft: 180, paddingTop: 15}}>
         <Text style={styles.PageTitle}>Login</Text>
       </View>
@@ -80,6 +80,9 @@ export default function SignInScreen() {
           title="LOGIN"
           buttonStyle={parameters.styledButton}
           titleStyle={parameters.buttonTitle}
+          onPress={() => {
+            navigation.navigate('HomeScreen');
+          }}
         />
       </View>
       <View style={{alignItems: 'center', marginTop: 15}}>
@@ -89,7 +92,9 @@ export default function SignInScreen() {
       </View>
 
       <View style={{alignItems: 'center', marginTop: 30, marginBottom: 30}}>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>OR</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold', color: '#86939e'}}>
+          OR
+        </Text>
       </View>
 
       <View>
@@ -140,6 +145,7 @@ const styles = StyleSheet.create({
 
   text1: {
     fontSize: 20,
+    color: '#86939e',
   },
 
   TextInput1: {
